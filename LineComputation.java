@@ -1,35 +1,61 @@
+import java.util.Scanner;
 public class LineComputation {
 
-	float length;
+	double Length()
+	{
+		Scanner sc=new Scanner(System.in);
+		int a=sc.nextInt();
+		int b=sc.nextInt();
+		int c=sc.nextInt();
+		int d=sc.nextInt();
+		int x=(a-c)*(a-c);
+		int y=(b-d)*(b-d);
+		double z=Math.sqrt(x+y);
+		return z;
+	}
 
-	public static void main(String[] args) {
-		System.out.println("Welcome to LINE COMPARISON COMPUTATION PROGRAM.\n");
-
-		// VARIABLES
-		double x1, y1, x2, y2;
-
-		LineComputation line1 = new LineComputation();
-		LineComputation line2 = new LineComputation();
-
-		// LINE LENGTHS EQUALITY CHECK
-		for (int count = 1; count <= 2; count++) {
-			x1 = Math.random();
-			y1 = Math.random();
-			x2 = Math.random();
-			y2 = Math.random();
-			if (count == 1)
-				line1.length = (float) Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-			else
-				line2.length = (float) Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+	void comp()
+	{
+		System.out.println("Enter the coordinates of first line");
+		String p=String.valueOf(Length());
+		System.out.println("Enter the coordinates of second line");
+		String q=String.valueOf(Length());
+		if(p.compareTo(q)==0)
+		{
+			System.out.println("THE TWO LINES ARE EQUAL");
 		}
-		System.out.println("Line1 length is " + line1.length + " units.");
-		System.out.println("Line1 length is " + line2.length + " units.");
-		System.out.println("\nComparing the two lines : ");
-		if (Float.compare(line1.length, line2.length) > 0)
-			System.out.println("Line1 is longer than line2.");
-		else if (Float.compare(line1.length, line2.length) < 0)
-			System.out.println("Line1 is shorter than line2.");
+		else if(p.compareTo(q)<0)
+		{
+			System.out.println("THE FIRST LINE IS SMALLER IN LENGTH COMPARED TO THE SECOND LINE");
+		}
+		else if(p.compareTo(q)>0)
+		{
+			System.out.println("THE FIRST LINE IS LARGER IN LENGTH COMPARED TO THE SECOND LINE");
+		}
+	}
+
+	void equal()
+	{
+		System.out.println("Enter the coordinates of first line");
+		String p=String.valueOf(Length());
+		System.out.println("Enter the coordinates of second line");
+		String q=String.valueOf(Length());
+		if(p.equals(q))
+		{
+			System.out.println("THE TWO LINES ARE EQUAL");
+		}
 		else
-			System.out.println("Line1 and line2 are of equal length.");
+		{
+			System.out.println("THE TWO LINES ARE NOT EQUAL");
+		}
+	}
+
+	public static void main (String a0rgs[])
+	{
+		System.out.println("Welcome to Line Computation Problem.\n");
+		LineComputation l=new LineComputation();
+		Scanner sc=new Scanner(System.in);
+		l.comp();
+		l.equal();
 	}
 }
